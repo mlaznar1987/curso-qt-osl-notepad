@@ -59,10 +59,10 @@ Para subir nota, proponemos las siguientes tareas para casa:
 Material de referencia
 ----
 
-* [Documentación oficial de QT] (Inglés)
-* [GIT - La guía sencilla] (Multilingüe)
-* [GIT challenges] (Inglés)
-* [GIT Cheat Sheet] (Inglés)
+* [Documentación oficial de QT]
+* [GIT - La guía sencilla]
+* [GIT challenges]
+* [GIT Cheat Sheet]
 
 
 [Documentación oficial de QT]:http://qt-project.org/doc/
