@@ -33,7 +33,7 @@ Tareas propuestas para realizar en clase
 Tras terminar con la implementación guiada del editor propuesto, procederemos a realizar las siguientes tareas:
 
 * Agregar las siguientes opciones en el menú:
- * Archivo/Cerrar
+ * Archivo/Salir
  * Editar/Cortar
  * Editar/Deshacer
  * Editar/Rehacer
