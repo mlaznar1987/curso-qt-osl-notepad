@@ -12,7 +12,7 @@ NotepadWindow::NotepadWindow(QWidget *parent)
     //Inicializamos los menús
     mainMenu_ = new QMenuBar(this);
 
-    mnuArchivo_ = new QMenu(tr("&Archivo"));
+    mnuArchivo_ = new QMenu(tr("&Archivo"), this);
     mainMenu_->addMenu(mnuArchivo_);
 
     actArchivoAbrir_ = new QAction(tr("&Abrir"), this);
@@ -23,7 +23,7 @@ NotepadWindow::NotepadWindow(QWidget *parent)
     actArchivoGuardar_->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_S));
     mnuArchivo_->addAction(actArchivoGuardar_);
 
-    mnuEditar_ = new QMenu(tr("&Editar"));
+    mnuEditar_ = new QMenu(tr("&Editar"), this);
     mainMenu_->addMenu(mnuEditar_);
 
     actEditarCopiar_ = new QAction(tr("&Copiar"), this);
@@ -34,7 +34,7 @@ NotepadWindow::NotepadWindow(QWidget *parent)
     actEditarPegar_->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_V));
     mnuEditar_->addAction(actEditarPegar_);
 
-    mnuFormato_ = new QMenu(tr("&Formato"));
+    mnuFormato_ = new QMenu(tr("&Formato"), this);
     mainMenu_->addMenu(mnuFormato_);
 
     actFormatoFuente_ = new QAction(tr("&Fuente"), this);
@@ -60,16 +60,16 @@ NotepadWindow::NotepadWindow(QWidget *parent)
 NotepadWindow::~NotepadWindow()
 {
     //Liberamos los recursos
-    delete mainMenu_;
-    delete actArchivoAbrir_;
-    delete actArchivoGuardar_;
-    delete mnuArchivo_;
-    delete actEditarCopiar_;
-    delete actEditarPegar_;
-    delete mnuEditar_;
-    delete actFormatoFuente_;
-    delete mnuFormato_;
-    delete txtEditor_;
+    mainMenu_->deleteLater();
+    actArchivoAbrir_->deleteLater();
+    actArchivoGuardar_->deleteLater();
+    mnuArchivo_->deleteLater();
+    actEditarCopiar_->deleteLater();
+    actEditarPegar_->deleteLater();
+    mnuEditar_->deleteLater();
+    actFormatoFuente_->deleteLater();
+    mnuFormato_->deleteLater();
+    txtEditor_->deleteLater();
 }
 
 void NotepadWindow::alAbrir()
