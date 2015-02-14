@@ -16,3 +16,5 @@ SOURCES += main.cpp\
         notepadwindow.cpp
 
 HEADERS  += notepadwindow.h
+
+RESOURCES +=

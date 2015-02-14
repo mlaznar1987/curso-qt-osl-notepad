@@ -25,18 +25,25 @@ private slots:
     void alAbrir();
     void alGuardar();
     void alFuente();
+    void alSalir(); // Anadiendo opcion Archivo/Salir
 
 private:
     QMenuBar*       mainMenu_;
     QMenu*          mnuArchivo_;
     QAction*        actArchivoAbrir_;
     QAction*        actArchivoGuardar_;
+    QAction*        actArchivoSalir_; // Anadiendo opcion Archivo/Salir
     QMenu*          mnuFormato_;
     QAction*        actFormatoFuente_;
     QMenu*          mnuEditar_;
     QAction*        actEditarCopiar_;
     QAction*        actEditarPegar_;
+    QAction*        actEditarCortar_; // Anadiendo opcion Editar/Cortar
+    QAction*        actEditarDeshacer_; // Anadiendo opcion Editar/Deshacer
+    QAction*        actEditarRehacer_; // Anadiendo opcion Editar/Rehacer
     QPlainTextEdit* txtEditor_;
+    QMenu*          mnuAyuda_;
+    QAction*        actAcercaDe_;
     QClipboard *    portapapeles_;
 
 };
