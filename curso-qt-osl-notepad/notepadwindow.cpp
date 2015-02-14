@@ -61,9 +61,9 @@ NotepadWindow::NotepadWindow(QWidget *parent)
     mnuAyuda_ = new QMenu(tr("&Ayuda"), this);
     mainMenu_->addMenu(mnuAyuda_);
 
-    actAcercaDe_ = new QAction(tr("&Acerca De"), this); // Anadiendo opcion Editar/Rehacer
-    actAcercaDe_->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_A)); // Anadiendo opcion Editar/Rehacer
-    mnuAyuda_->addAction(actAcercaDe_); // Anadiendo opcion Editar/Rehacer
+    actAyudaAcercaDe_ = new QAction(tr("&Acerca De"), this); // Anadiendo opcion Ayuda/AcercaDe
+    actAyudaAcercaDe_->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_A)); // Anadiendo opcion Ayuda/AcercaDe
+    mnuAyuda_->addAction(actAyudaAcercaDe_); // Anadiendo opcion Ayuda/AcercaDe
 
     //Agregamos la barra de menú a la ventana
     this->setMenuBar(mainMenu_);
@@ -81,6 +81,7 @@ NotepadWindow::NotepadWindow(QWidget *parent)
     connect(actEditarDeshacer_, SIGNAL(triggered()), txtEditor_,    SLOT(undo())); // Anadiendo opcion Editar/Deshacer
     connect(actEditarRehacer_, SIGNAL(triggered()), txtEditor_,    SLOT(undo())); // Anadiendo opcion Editar/Deshacer
     connect(actFormatoFuente_,  SIGNAL(triggered()), this,          SLOT(alFuente()));
+    connect(actAyudaAcercaDe_,  SIGNAL(triggered()), this,          SLOT(alAcercaDe())); // Anadiendo opcion Ayuda/AcercaDe
 
 
     //Agregamos el editor de texto a la ventana
@@ -104,7 +105,7 @@ NotepadWindow::~NotepadWindow()
     actFormatoFuente_->deleteLater();
     mnuFormato_->deleteLater();
     mnuAyuda_->deleteLater();
-    actAcercaDe_->deleteLater();
+    actAyudaAcercaDe_->deleteLater();
     txtEditor_->deleteLater();
 }
 
@@ -165,4 +166,11 @@ void NotepadWindow::alFuente()
 void NotepadWindow::alSalir() // Anadiendo opcion Archivo/Salir
 {
     close();
+}
+
+void NotepadWindow::alAcercaDe()
+{
+    QMessageBox q;
+    q.setText("Manuel Luis Aznar 2015");
+    q.exec();
 }

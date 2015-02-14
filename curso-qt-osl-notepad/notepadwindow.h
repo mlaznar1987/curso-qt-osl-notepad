@@ -12,6 +12,7 @@
 #include <QFontDialog>
 #include <QClipboard>
 #include <QKeySequence>
+#include <QMessageBox>
 
 class NotepadWindow : public QMainWindow
 {
@@ -26,6 +27,7 @@ private slots:
     void alGuardar();
     void alFuente();
     void alSalir(); // Anadiendo opcion Archivo/Salir
+    void alAcercaDe();
 
 private:
     QMenuBar*       mainMenu_;
@@ -43,7 +45,7 @@ private:
     QAction*        actEditarRehacer_; // Anadiendo opcion Editar/Rehacer
     QPlainTextEdit* txtEditor_;
     QMenu*          mnuAyuda_;
-    QAction*        actAcercaDe_;
+    QAction*        actAyudaAcercaDe_;
     QClipboard *    portapapeles_;
 
 };
