@@ -16,6 +16,8 @@
 #include <QToolBar>
 
 
+
+
 class NotepadWindow : public QMainWindow
 {
     Q_OBJECT
