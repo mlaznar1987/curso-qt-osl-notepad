@@ -13,6 +13,7 @@
 #include <QClipboard>
 #include <QKeySequence>
 #include <QMessageBox>
+#include <QToolBar>
 
 class NotepadWindow : public QMainWindow
 {
@@ -46,7 +47,8 @@ private:
     QPlainTextEdit* txtEditor_;
     QMenu*          mnuAyuda_;
     QAction*        actAyudaAcercaDe_;
-    QClipboard *    portapapeles_;
+    QClipboard*     portapapeles_;
+    QToolBar*       toolbar_;
 
 };
 

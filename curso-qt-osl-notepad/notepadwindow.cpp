@@ -71,6 +71,12 @@ NotepadWindow::NotepadWindow(QWidget *parent)
     //Inicializamos el editor de texto
     txtEditor_ = new QPlainTextEdit(this);
 
+    toolbar_ = new QToolBar();
+    toolbar_->addAction(actArchivoAbrir_);
+    toolbar_->addAction(actArchivoGuardar_);
+    toolbar_->addAction(actArchivoSalir_);
+    this->addToolBar(toolbar_);
+
     //Conectamos las acciones de los menús con nuestros slots
     connect(actArchivoAbrir_,   SIGNAL(triggered()), this,          SLOT(alAbrir()));
     connect(actArchivoGuardar_, SIGNAL(triggered()), this,          SLOT(alGuardar()));
@@ -79,7 +85,7 @@ NotepadWindow::NotepadWindow(QWidget *parent)
     connect(actEditarPegar_,    SIGNAL(triggered()), txtEditor_,    SLOT(paste()));
     connect(actEditarCortar_,   SIGNAL(triggered()), txtEditor_,    SLOT(cut())); // Anadiendo opcion Editar/Cortar
     connect(actEditarDeshacer_, SIGNAL(triggered()), txtEditor_,    SLOT(undo())); // Anadiendo opcion Editar/Deshacer
-    connect(actEditarRehacer_, SIGNAL(triggered()), txtEditor_,    SLOT(undo())); // Anadiendo opcion Editar/Deshacer
+    connect(actEditarRehacer_,  SIGNAL(triggered()), txtEditor_,    SLOT(undo())); // Anadiendo opcion Editar/Deshacer
     connect(actFormatoFuente_,  SIGNAL(triggered()), this,          SLOT(alFuente()));
     connect(actAyudaAcercaDe_,  SIGNAL(triggered()), this,          SLOT(alAcercaDe())); // Anadiendo opcion Ayuda/AcercaDe
 
@@ -106,6 +112,7 @@ NotepadWindow::~NotepadWindow()
     mnuFormato_->deleteLater();
     mnuAyuda_->deleteLater();
     actAyudaAcercaDe_->deleteLater();
+    toolbar_->deleteLater();
     txtEditor_->deleteLater();
 }
 
@@ -171,6 +178,7 @@ void NotepadWindow::alSalir() // Anadiendo opcion Archivo/Salir
 void NotepadWindow::alAcercaDe()
 {
     QMessageBox q;
-    q.setText("Manuel Luis Aznar 2015");
+    q.setWindowTitle("Acerca De");
+    q.setText("Manuel Luis Aznar\n Copyright 2015");
     q.exec();
 }
