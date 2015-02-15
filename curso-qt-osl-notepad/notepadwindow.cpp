@@ -11,6 +11,7 @@ NotepadWindow::NotepadWindow(QWidget *parent)
                                                        // al proyecto la base de datos de traducciones
                                                        // el QT traducira el texto automaticamente
 
+
     //Inicializamos los menús
     mainMenu_ = new QMenuBar(this);
 
