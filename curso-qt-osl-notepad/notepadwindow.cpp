@@ -6,13 +6,10 @@ NotepadWindow::NotepadWindow(QWidget *parent)
     //Establecemos el tamaño inicial de la ventana
     this->setGeometry(30, 30, 800, 600);
 
-    //Establecemos el título de la ventana
-    this->setWindowTitle(tr("Super editor de texto")); // Con la funcion tr, si asignamos
-                                                       // al proyecto la base de datos de traducciones
-                                                       // el QT traducira el texto automaticamente
-
-
-
+    // Establecemos el título de la ventana
+    // La funcion tr traducira el texto de forma automatica a nuestro lenguaje indicado por locale,
+    // siempre y cuando tengamos la base de datos de traducciones añadida al proyecto
+    this->setWindowTitle(tr("Mi editor de texto"));
 
     //Inicializamos los menús
     mainMenu_ = new QMenuBar(this);
@@ -22,14 +19,17 @@ NotepadWindow::NotepadWindow(QWidget *parent)
 
     actArchivoAbrir_ = new QAction(tr("&Abrir"), this);
     actArchivoAbrir_->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_O));
+    actArchivoAbrir_->setIcon(QIcon(":/icons/Open.ico"));
     mnuArchivo_->addAction(actArchivoAbrir_);
 
     actArchivoGuardar_ = new QAction(tr("&Guardar"), this);
     actArchivoGuardar_->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_S));
+    actArchivoGuardar_->setIcon(QIcon(":/icons/Save.ico"));
     mnuArchivo_->addAction(actArchivoGuardar_);
 
     actArchivoSalir_ = new QAction(tr("&Salir"), this); // Anadiendo opcion Archivo/Salir
     actArchivoSalir_->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_E)); // Anadiendo opcion Archivo/Salir
+    actArchivoSalir_->setIcon(QIcon(":/icons/Exit.ico"));
     mnuArchivo_->addAction(actArchivoSalir_); // Anadiendo opcion Archivo/Salir
 
     mnuEditar_ = new QMenu(tr("&Editar"), this);
@@ -175,7 +175,21 @@ void NotepadWindow::alFuente()
 
 void NotepadWindow::alSalir() // Anadiendo opcion Archivo/Salir
 {
-    close();
+    QMessageBox msgBox;
+    msgBox.setText("¿Esta seguro de que desea salir?");
+    msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+    msgBox.setDefaultButton(QMessageBox::Ok);
+    int ret = msgBox.exec();
+    switch (ret) {
+       case QMessageBox::Ok:
+           close();
+           break;
+       case QMessageBox::Cancel:
+           break;
+       default:
+           break;
+     }
+
 }
 
 void NotepadWindow::alAcercaDe()

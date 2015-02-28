@@ -7,9 +7,5 @@ int main(int argc, char *argv[])
     NotepadWindow w;
     w.show();
 
-
-
-
-
     return a.exec();
 }

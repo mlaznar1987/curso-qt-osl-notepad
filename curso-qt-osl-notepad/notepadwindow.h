@@ -14,6 +14,7 @@
 #include <QKeySequence>
 #include <QMessageBox>
 #include <QToolBar>
+#include <QIcon>
 
 
 
