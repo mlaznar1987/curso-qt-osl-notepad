@@ -17,4 +17,5 @@ SOURCES += main.cpp\
 
 HEADERS  += notepadwindow.h
 
-RESOURCES +=
+RESOURCES += \
+    resources.qrc
